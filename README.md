@@ -3,8 +3,10 @@ Goal: Web scraping currency exchange rate from internet and send current rate to
 
 ## Instructions:
 *CERM_daily_report.py*: the main python code that do the web scraping, and sending emails.
+
 *.env*: config file to store password which is not included here in this repository, can create own .env file and store under the same directory with the CERM_daily_report.py file
-8run_script.sh*: the shell script to activate venv and run the CERM_daily_report.py and then deactivate the venv - by activating venv in shell can help to solve issues like missing python package installed in your local pc/laptop if you are running venv for debugging codes which means you may only install packages in your venv. 
+
+*run_script.sh*: the shell script to activate venv and run the CERM_daily_report.py and then deactivate the venv - by activating venv in shell can help to solve issues like missing python package installed in your local pc/laptop if you are running venv for debugging codes which means you may only install packages in your venv. 
 
 ### Cron setup: 
 OS system: macos 
