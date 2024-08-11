@@ -17,8 +17,9 @@ class CurrencyMonitor:
         #self.fetch_exchange_rate()
         self.send_email()
 
+    # update the url for the corresponding currency rate page, this only scraping CAD and CNY
     def fetch_exchange_rate(self):
-        url = "https://g.co/finance/CAD-CNY"
+        url = "https://g.co/finance/CAD-CNY"  
         print("Fetching...")
         #headers = {}
         response = requests.get(url)
@@ -37,18 +38,23 @@ class CurrencyMonitor:
                 return(last_timestamp_converted, last_price)
             else:
                 print("No matching element")
+            # In case if you want to output the reponse to a separate file instead showing in terminal, uncomment below
             # print("Writing to the text file response.txt...")
             # f = open('response.txt', 'w')
             # f.write(soup_format)
             # f.close()
 
     def send_email(self):
+        # NOTE: if your are using outlook for sender email, you can keep smtp_server below unchanged, otherwise, update the value correspondingly
         smtp_server = 'smtp-mail.outlook.com'
         smtp_port = 587
-        load_dotenv('/Users/peggyhu/Downloads/vscode/CurrencyMonitor/venv/.env')
-        sender_email = 'hinakageforever@outlook.com'
+        # update the path where your .env file located
+        load_dotenv('/Users/Downloads/vscode/CurrencyMonitor/venv/.env')
+       
+        # update using your own sender email
+        sender_email = 'yourownsenderemail@outlook.com'
         sender_email_password = os.getenv("password")
-        receiver_email = 'baichang2025@gmail.com'
+        receiver_email = 'yourownreceivereail@xxx.com'
         timestamp, price = self.fetch_exchange_rate()
         body = f"Here is the currency exchange rate of CAD to CNY: {price} for date: {timestamp}"
         print(body)
@@ -76,7 +82,5 @@ class CurrencyMonitor:
 
 if __name__== "__main__":
     CurrencyMonitor()
-    #sender_email_password = os.getenv("password")
-    #print(sender_email_password)
         
 
