@@ -11,10 +11,6 @@ import os
 
 class CurrencyMonitor:
     def __init__(self):
-        #self.root = root
-        #self.root.title("Currency Exchange Rate Monitor")
-        #self.label = tk.Label(root, text="Currency Exchange Rate", font=("Helvetica", 16))
-        #self.fetch_exchange_rate()
         self.send_email()
 
     # update the url for the corresponding currency rate page, this only scraping CAD and CNY
@@ -51,7 +47,7 @@ class CurrencyMonitor:
         # update the path where your .env file located
         load_dotenv('/Users/Downloads/vscode/CurrencyMonitor/venv/.env')
        
-        # update using your own sender email
+        # update using your own sender and receiver email
         sender_email = 'yourownsenderemail@outlook.com'
         sender_email_password = os.getenv("password")
         receiver_email = 'yourownreceivereail@xxx.com'
